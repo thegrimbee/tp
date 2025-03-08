@@ -272,31 +272,62 @@ _{Explain here how the data archiving feature will be implemented}_
 
 ### Product scope
 
+**Target user**: Hall attendance managers
+
 **Target user profile**:
 
-* has a need to manage a significant number of contacts
-* prefer desktop apps over other types
-* can type fast
-* prefers typing to mouse interactions
-* is reasonably comfortable using CLI apps
+* Resolve the distress of the Hall attendance manager caused by the current complex and unorganized CCA attendance system.
+* Provide a simple and easy-to-use software that effectively tracks all CCA attendances for hall students.
+* Accommodate the manager’s “lazy” nature by streamlining workflows and reducing complexity.
+* Prioritize typing over mouse usage to align with the manager’s preferences.
 
-**Value proposition**: manage contacts faster than a typical mouse/GUI driven app
-
+**Value proposition**:  It provides a centralized tracking system for the CCA attendance for hall students in different CCAs, which is required for the point calculation. Students are grouped by CCAs, and each student has an attendance/point tracker. CLI commands allow point allocation to be done quickly.
 
 ### User stories
 
-Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
+- Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`.
+- HAM below refers to Hall Attendance Managers.
 
-| Priority | As a …​                                    | I want to …​                 | So that I can…​                                                        |
-|----------|--------------------------------------------|------------------------------|------------------------------------------------------------------------|
-| `* * *`  | new user                                   | see usage instructions       | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new person             |                                                                        |
-| `* * *`  | user                                       | delete a person              | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name        | locate details of persons without having to go through the entire list |
-| `* *`    | user                                       | hide private contact details | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many persons in the address book | sort persons by name         | locate a person easily                                                 |
+| Index | Priority | As a …                             | I can …                                                      | So that I can…                                                                           |
+|-----: | :------: | :---------------------------------- | :----------------------------------------------------------- |:-----------------------------------------------------------------------------------------|
+| 1     | `* * *`  | HAM                                 | create new students in the list                             | store their information.                                                                 |
+| 2     | `* * *`  | HAM                                 | delete existing students from the list                       | remove ex-students and other redundant data.                                             |
+| 3     | `* *`    | HAM                                 | view student profiles by searching by name                   | provide personalized service.                                                            |
+| 4     | `* *`    | HAM                                 | view student profiles sorted by their last update            | access the most recent data easily.                                                      |
+| 5     | `* * *`  | HAM                                 | create a CCA role                                            | label students according to specific responsibilities in that CCA.                       |
+| 6     | `* * *`  | HAM                                 | delete an existing CCA role                                  | revert any changes or mistakes made when labeling a student.                             |
+| 7     | `* * *`  | HAM                                 | add roles to a student in a CCA                              | categorize students by their responsibilities (e.g. captain, exco, non-official member). |
+| 8     | `* * *`  | HAM                                 | delete a role from a student in a CCA                        | remove any outdated labels (e.g. if the student resigns from a role).                    |
+| 9     | `* *`    | HAM                                 | search for students by their roles                           | easily find students who share the same responsibilities.                                |
+| 10    | `* *`    | HAM                                 | edit student profiles                                        | keep their information up to date and recover from mistakes (e.g. a change of address).  |
+| 11    | `*`      | HAM                                 | add additional remarks to students                           | record special circumstances (e.g. poor behavior).                                       |
+| 12    | `*`      | new HAM                             | use the “help” command                                       | learn how to use the application.                                                        |
+| 13    | `*`      | experienced HAM                     | set custom keybinds or shortcuts                             | use commands more quickly.                                                               |
+| 14    | `*`      | HAM                                 | undo commands                                                | easily recover from mistakes or accidents.                                               |
+| 15    | `*`      | HAM                                 | archive student profiles                                     | remove inactive students while still retaining their data for future reference.          |
+| 16    | `* * *`  | potential HAM exploring the app      | see the application populated with sample student information | understand how it looks in active use.                                                   |
+| 17    | `* * *`  | new HAM ready to start using the app | purge all current data                                       | remove any sample student information used for testing.                                  |
+| 18    | `*`      | HAM taking over from another HAM     | import student profiles                                      | transfer existing student information into my system.                                    |
+| 19    | `*`      | HAM taking over from another HAM     | export student profiles                                      | pass the current student information on to another HAM.                                  |
+| 20    | `* * *`  | HAM                                 | record a student’s attendance in a CCA by 1                  | accurately track attendance.                                                             |
+| 21    | `* *`    | HAM                                 | set a maximum attendance for CCA                             | have a better idea of the student’s attendance rate.                                     |
+| 22    | `* *`    | HAM                                 | record attendance in bulk                                    | dont have to update attendance student by student.                                       |
+| 23    | `*`      | HAM                                 | view the access history of student profiles                  | keep track of my past interactions.                                                      |
+| 24    | `* * *`  | HAM                                 | create a new CCA                                             | assign it to students.                                                                   |
+| 25    | `* * *`  | HAM                                 | delete a CCA                                                | remove any that are no longer active or needed.                                          |
+| 26    | `* * *`  | HAM                                 | add a CCA to a student                                       | keep their records accurate.                                                             |
+| 27    | `* * *`  | HAM                                 | delete a CCA from a student                                  | update their status if they leave or switch CCAs.                                        |
+| 28    | `* * *`  | HAM                                 | view the list of CCAs separately from the student list       | see all CCAs at once.                                                                    |
+| 29    | `* *`    | HAM                                 | see the number of students in each CCA                       | better manage the distribution of students across CCAs.                                  |
+| 30    | `* *`    | HAM                                 | see the list of roles in a CCA                               | know which roles can be assigned to students.                                            |
+| 31    | `* *`    | HAM                                 | view students by their CCAs                                 | more easily track students in each CCA.                                                  |
+| 32    | `* *`    | HAM                                 | view the calculated hall points each student has             | better understand their overall contributions.                                           |
+| 33    | `*`      | HAM                                 | manually adjust hall points for a student                    | correct any inaccuracies when necessary.                                                 |
+| 34    | `*`      | HAM                                 | highlight students with low attendance in red                | know which students to follow up with.                                                   |
+| 35    | `*`      | HAM                                 | generate reports that give an overview of CCA participation and points | provide data to the hall administration for decision-making.                             |
+| 36    | `*`      | HAM                                 | rank students by their hall points in these reports          | have a clear summary of top performers.                                                  |
+| 37    | `*`      | HAM                                 | edit the multiplier used in point calculations (e.g. changing from 1.5× to 2× for certain roles) | adjust the scoring system as needed.                                                     |
 
-*{More to be added}*
 
 ### Use cases
 
@@ -338,7 +369,13 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 ### Glossary
 
 * **Mainstream OS**: Windows, Linux, Unix, MacOS
-* **Private contact detail**: A contact detail that is not meant to be shared with others
+* **CLI**: Command Line Interface, a text-based interface that allows users to interact with the system by typing commands
+* **GUI**: Graphical User Interface, a visual interface that allows users to interact with the system using graphical elements such as CLI, buttons, etc.
+* **Index**: A number that represents the position of student or CCA. It is shown in the UI on the left side of the student or CCA details
+* **HAM**: Hall attendance manager, i.e. the one in charge of taking attendance of the students
+* **Role**: The position the student has in the CCA, e.g. Captain, President
+
+*{More to be added}*
 
 --------------------------------------------------------------------------------------------------------------------
 

@@ -11,51 +11,37 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 
 ## Project team
 
-### John Doe
+### Judy Park (Seoyoung)
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/judy1x4.png" width="200px">
 
-[[homepage](http://www.comp.nus.edu.sg/~damithch)]
-[[github](https://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](https://github.com/judy1x4)]
 
-* Role: Project Advisor
+* Role: Testing
 
-### Jane Doe
+### Waylon
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/waylonggggg.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](http://github.com/waylonggggg)]
 
-* Role: Team Lead
+* Role: Code Quality
 * Responsibilities: UI
 
-### Johnny Doe
+### Cai Zhenze
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/nova1729.png" width="200px">
 
-[[github](http://github.com/johndoe)] [[portfolio](team/johndoe.md)]
+[[Nova1729](http://github.com/Nova1729)]
 
-* Role: Developer
-* Responsibilities: Data
+* Role: Deliverables and deadlines  
+* Responsibilities: Ensure that we submit our assignments before the deadline
 
-### Jean Doe
+### Gabriel Mario Antaputra
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/thegrimbee.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](http://github.com/thegrimbee)]
 
-* Role: Developer
-* Responsibilities: Dev Ops + Threading
-
-### James Doe
-
-<img src="images/johndoe.png" width="200px">
-
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
-
-* Role: Developer
-* Responsibilities: UI
+* Role: Documentation
+* Responsibilities: Quality of documents
