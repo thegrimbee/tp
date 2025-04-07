@@ -1,0 +1,52 @@
+@startuml
+
+skin rose
+skinparam ActivityFontSize 15
+skinparam ArrowFontSize 12
+
+start
+:User runs "add_r 1" command;
+:Parse command input;
+
+if () then ([invalid input])
+  :Display error message;
+  stop
+
+else ([valid input])
+  :Create AddRoleToStudentCommand object;
+  :Return the command object to the LogicManager;
+  :LogicManager executes the command;
+
+if () then ([student does not exist in Model])
+  :Display error message;
+  stop
+
+else ([else])
+
+    :Create student with added role;
+
+if () then ([CCA does not exist])
+  :Display error message;
+  stop
+
+else ([else])
+  :get Cca object;
+
+if () then ([person does not have CCA])
+  :Display error message;
+  stop
+
+else ([else])
+
+if () then ([invalid role or role not exist in CCA])
+  :Display error message;
+  stop
+
+else ([else])
+  :Create student with added role;
+  :Update student to Model;
+  :Update in Storage;
+  :Update UI;
+stop
+
+@enduml

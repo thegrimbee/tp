@@ -1,0 +1,38 @@
+@startuml
+
+object "<u>basketball:CcaName</u>" as ccaName {
+}
+
+object "<u>sessionAttended:SessionCount</u>" as sessionAttended {
+  amount = 1
+}
+
+object "<u>totalSessions:SessionCount</u>" as totalSessions {
+  totalSessions = 11
+}
+
+object "<u>president:Role</u>" as president {
+}
+
+object "<u>member:Role</u>" as member {
+}
+
+object "<u>:Cca</u>" as basketballCca {
+}
+
+object "<u>:Attendance</u>" as attendance {
+}
+
+object "<u>:CcaInformation</u>" as ccaInformation {
+}
+
+ccaInformation --> president
+ccaInformation --> attendance
+ccaInformation --> basketballCca
+basketballCca --> ccaName
+basketballCca --> totalSessions
+basketballCca --> president
+basketballCca --> member
+attendance --> totalSessions
+attendance --> sessionAttended
+@enduml

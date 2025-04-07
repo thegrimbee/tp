@@ -1,0 +1,29 @@
+@startuml
+skin rose
+skinparam ActivityFontSize 15
+skinparam ArrowFontSize 12
+
+start
+:User executes "edit_s 1 <fields>" command;
+
+' 1) Check if index is out of range
+if () then (Index out of range)
+  :Throw CommandException(MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+  stop
+else (Index within range)
+  :personToEdit = lastShownList.get(index);
+  :editedPerson = createEditedPerson(personToEdit, editPersonDescriptor);
+
+  ' 2) Check if it's a duplicate (and not the same person)
+  if () then (Duplicate found)
+    :Throw CommandException(MESSAGE_DUPLICATE_PERSON);
+    stop
+  else (No duplicates)
+    :model.setPerson(personToEdit, editedPerson);
+    :model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
+    :Return CommandResult("Edited student: " + editedPerson);
+  endif
+endif
+
+stop
+@enduml

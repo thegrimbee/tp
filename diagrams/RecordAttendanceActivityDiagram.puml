@@ -1,0 +1,37 @@
+@startuml
+skin rose
+skinparam ActivityFontSize 15
+skinparam ArrowFontSize 12
+
+start
+:User runs "record 1" command;
+:Parse command input;
+
+if () then ([invalid input])
+  :Display error message;
+
+else ([valid input])
+  :Create RecordAttendanceCommand object;
+  :Return the command object to the LogicManager;
+  :LogicManager executes the command;
+
+if () then ([student does not exist in Model])
+  :Display student does not exist error message;
+
+else ([else])
+  :Create Student object;
+
+if () then ([CCA does not exist in Model])
+  :Display CCA does not exist error message;
+
+else ([else])
+  :Create student with Attendance incremented;
+  :Update the student to Model;
+  :Update in Storage;
+  :Update UI;
+
+endif
+endif
+endif
+stop
+@enduml

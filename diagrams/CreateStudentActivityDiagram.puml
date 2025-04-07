@@ -1,0 +1,31 @@
+@startuml
+skin rose
+skinparam ActivityFontSize 15
+skinparam ArrowFontSize 12
+
+start
+:User runs "create_s "1 command;
+:Parse command input;
+
+if () then ([invalid input])
+  :Display error message;
+
+else ([valid input])
+  :Create Student to add;
+  :Create AddStudentCommand object;
+  :Return the command object to the LogicManager;
+  :LogicManager executes the command;
+
+if () then ([duplicate student exist in Model])
+  :Display duplicate student error message;
+
+else ([else])
+  :Add student to Model;
+  :Save in Storage;
+  :Update UI;
+
+
+endif
+endif
+stop
+@enduml

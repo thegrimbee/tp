@@ -1,0 +1,32 @@
+@startuml
+!include style.puml
+skinparam arrowThickness 1.1
+skinparam arrowColor MODEL_COLOR
+skinparam classBackgroundColor MODEL_COLOR
+
+Class UniqueCcaList
+Class Person
+
+package "Cca Information Attribute Classes" as CcaInformationClasses{
+Class Cca
+Class Role
+Class CcaInformation
+Class Attendance
+Class SessionCount
+Class CcaName
+}
+
+CcaInformation -up-> "1" Cca
+CcaInformation -up-> "1" Attendance
+CcaInformation -up-> "1" Role
+Cca -up-> "1"SessionCount
+Cca -left-> "*" Role
+Cca -up-> "1" CcaName
+Attendance -up-> "1" SessionCount
+Attendance -up-> "1" SessionCount
+Attendance -[hidden]right-> Role
+Cca -[hidden]left-> Attendance
+Person *-right-> "*" CcaInformation
+UniqueCcaList -right-> "*" Cca
+
+@enduml

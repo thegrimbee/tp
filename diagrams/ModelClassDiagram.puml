@@ -5,6 +5,7 @@ skinparam arrowColor MODEL_COLOR
 skinparam classBackgroundColor MODEL_COLOR
 
 Package Model as ModelPackage <<Rectangle>>{
+
 Class "<<interface>>\nReadOnlyAddressBook" as ReadOnlyAddressBook
 Class "<<interface>>\nReadOnlyUserPrefs" as ReadOnlyUserPrefs
 Class "<<interface>>\nModel" as Model
@@ -13,12 +14,24 @@ Class ModelManager
 Class UserPrefs
 
 Class UniquePersonList
+Class UniqueCcaList
 Class Person
 Class Address
 Class Email
 Class Name
 Class Phone
-Class Tag
+
+    Package "" as CcaClasses <<Rectangle>> {
+        Class Cca
+        Class Role
+        Class CcaInformation
+        Class Attendance
+        Class SessionCount
+        Class CcaName
+    }
+    note bottom of CcaClasses
+      CcaInformationAttributeClasses
+    end note
 
 Class I #FFFFFF
 }
@@ -36,19 +49,34 @@ ModelManager -right-> "1" UserPrefs
 UserPrefs .up.|> ReadOnlyUserPrefs
 
 AddressBook *--> "1" UniquePersonList
+AddressBook *--> "1" UniqueCcaList
 UniquePersonList --> "~* all" Person
+UniqueCcaList -down-> "~* all     " Cca
 Person *--> Name
 Person *--> Phone
 Person *--> Email
 Person *--> Address
-Person *--> "*" Tag
+Person *--> "*" CcaInformation
+Cca -down-> "~*" Role
+Cca -down-> "1" CcaName
+Cca --> "1" SessionCount
+
+CcaInformation -left-> "1" Cca
+CcaInformation -down-> "1" Role
+CcaInformation -down-> "1" Attendance
+Attendance -down-> "1" SessionCount
+Attendance -down-> "1" SessionCount
+UniqueCcaList -[hidden]right-> I
 
 Person -[hidden]up--> I
 UniquePersonList -[hidden]right-> I
+UniqueCcaList -[hidden]right-> I
 
 Name -[hidden]right-> Phone
 Phone -[hidden]right-> Address
 Address -[hidden]right-> Email
+CcaInformation -[hidden]right-> Name
+CcaName -[hidden]right-> Role
 
 ModelManager --> "~* filtered" Person
 @enduml

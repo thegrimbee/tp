@@ -5,17 +5,25 @@ skinparam arrowColor MODEL_COLOR
 skinparam classBackgroundColor MODEL_COLOR
 
 AddressBook *-right-> "1" UniquePersonList
-AddressBook *-right-> "1" UniqueTagList
-UniqueTagList -[hidden]down- UniquePersonList
-UniqueTagList -[hidden]down- UniquePersonList
+AddressBook *-right-> "1" UniqueCcaList
+UniqueCcaList -[hidden]down- UniquePersonList
 
-UniqueTagList -right-> "*" Tag
+UniqueCcaList -right-> "*" Cca
 UniquePersonList -right-> Person
 
-Person -up-> "*" Tag
+CcaInformation -up-> "1" Cca
+CcaInformation -right-> "1" Attendance
+CcaInformation -right-> "1" Role
+Role -[hidden]down-> "1" Attendance
+Cca --> "1 totalSessions" SessionCount
+Cca --> "*" Role
+Cca -right-> "1" CcaName
+Attendance -right-> "1" SessionCount
+Attendance -right-> "1" SessionCount
 
 Person *--> Name
 Person *--> Phone
 Person *--> Email
 Person *--> Address
+Person *-right-> "*" CcaInformation
 @enduml

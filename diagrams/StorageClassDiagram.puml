@@ -19,7 +19,15 @@ Class "<<interface>>\nAddressBookStorage" as AddressBookStorage
 Class JsonAddressBookStorage
 Class JsonSerializableAddressBook
 Class JsonAdaptedPerson
-Class JsonAdaptedTag
+
+package "" as CcaInformationClasses {
+    Class JsonAdaptedCca
+    Class JsonAdaptedCcaInformation
+    Class JsonAdaptedRole
+}
+note bottom of CcaInformationClasses
+  CcaInformationAttributeStorages
+end note
 }
 
 }
@@ -38,6 +46,10 @@ JsonUserPrefsStorage .up.|> UserPrefsStorage
 JsonAddressBookStorage .up.|> AddressBookStorage
 JsonAddressBookStorage ..> JsonSerializableAddressBook
 JsonSerializableAddressBook --> "*" JsonAdaptedPerson
-JsonAdaptedPerson --> "*" JsonAdaptedTag
+JsonSerializableAddressBook --> "*" JsonAdaptedCca
+JsonAdaptedPerson -down-> "*" JsonAdaptedCcaInformation
+JsonAdaptedCcaInformation -right-> "1" JsonAdaptedCca
+JsonAdaptedCcaInformation -down-> "1" JsonAdaptedRole
+JsonAdaptedCca -down-> "*" JsonAdaptedRole
 
 @enduml

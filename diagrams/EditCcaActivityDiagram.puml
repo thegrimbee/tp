@@ -1,0 +1,37 @@
+@startuml
+skin rose
+skinparam ActivityFontSize 15
+skinparam ArrowFontSize 12
+
+start
+:User runs "edit_c 1" command;
+:Parse command input;
+
+if () then ([invalid input])
+  :Display error message;
+
+else ([valid input])
+  :Create EditCcaCommand object;
+  :Return the command object to the LogicManager;
+  :LogicManager executes the command;
+
+if () then ([CCA does not exist in Model])
+  :Display CCA does not exist error message;
+
+else ([else])
+
+  :Create Edited CCA;
+
+if () then ([edited CCA is a duplicate of another CCA])
+  :Display duplicate CCA error message;
+
+else ([else])
+  :Update Edited CCA to Model;
+  :Update in Storage;
+  :Update UI;
+
+endif
+endif
+endif
+stop
+@enduml
